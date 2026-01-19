@@ -1,0 +1,131 @@
+/* ====================================
+   HIP-HOP BATTLE GAME - ARCADE STYLES
+   ==================================== */
+
+/* --- FONT (assuming we can't add files) --- */
+/* We'll use a common monospace font to simulate a pixel font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #1a0a2a;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-transform: uppercase;
+}
+
+/* --- SCANLINE EFFECT --- */
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 4rem;
+    background: #000000;
+    border: 0.4rem solid #ff00ff;
+    box-shadow: 0 0 2.5rem #ff00ff, inset 0 0 2.5rem #ff00ff;
+    text-align: center;
+}
+
+h1 {
+    font-size: 5rem;
+    color: #ffff00;
+    text-shadow: 0.3rem 0.3rem 0 #ff00ff;
+    margin-bottom: 3rem;
+    letter-spacing: 0.2rem;
+}
+
+/* --- CANVAS CONTAINER (Arcade Screen) --- */
+.canvas-container {
+    position: relative;
+    width: 100%;
+    /* Maintain 16:9 Aspect Ratio */
+    padding-top: 56.25%; 
+    margin-bottom: 3rem;
+    background: #0a0a0a;
+    border: 0.4rem solid #00ffff;
+    box-shadow: 0 0 1.5rem #00ffff, inset 0 0 1.5rem #00ffff;
+}
+
+#gameCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #222222; /* Placeholder for game content */
+}
+
+/* --- LEGEND (How to Play) --- */
+.legend {
+    border: 0.4rem solid #ff00ff;
+    padding: 2.5rem;
+    text-align: left;
+    background: rgba(10, 0, 20, 0.5);
+}
+
+.legend h3 {
+    font-size: 2.5rem;
+    color: #ffff00;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 0.2rem 0.2rem 0 #ff00ff;
+}
+
+.legend ul {
+    list-style: none;
+}
+
+.legend li {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.legend li:last-child {
+    margin-bottom: 0;
+}
+
+.legend li strong {
+    color: #00ffff;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    html {
+        font-size: 8px;
+    }
+    .container {
+        padding: 2rem;
+    }
+}
